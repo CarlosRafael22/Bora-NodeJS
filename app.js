@@ -10,7 +10,8 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 ///// TEM QUE FAZER A CONEXAO COM O MONGOOSE E O BANCO
-mongoose.connect('mongodb://localhost:27017/boraDB');
+//mongoose.connect('mongodb://localhost:27017/boraDB');
+mongoose.connect(process.env.MONGODB_URI);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(){
