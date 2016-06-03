@@ -14,19 +14,24 @@ activityRouter.route('/')
 .get(function(req,res,next){
 	Activities.find({}, function(err, activities){
 		if(err) throw err;
-		console.log(activities[0]);
-		console.log(typeof(activities[0].updatedAt));		
-		console.log(moment(activities[0].updatedAt).format('DD/MM/YYYY, HH:mm:ss'));
 
-		//vai ser a nova lista com as activities.updatedAt certinho
 		var new_activities = [];
-		for(var i=0; i<activities.length; i++){
-			console.log(activities[i].title);
-			activities[i].updatedAt = moment(activities[i].updatedAt).format('DD/MM/YYYY, HH:mm:ss');
-			new_activities.push(activities[i]);
+		if(activities.length > 0){
+			console.log(activities[0]);
+			//console.log(typeof(activities[0].updatedAt));		
+			console.log(moment(activities[0].updatedAt).format('DD/MM/YYYY, HH:mm:ss'));
+
+			//vai ser a nova lista com as activities.updatedAt certinho
+			//var new_activities = [];
+			for(var i=0; i<activities.length; i++){
+				console.log(activities[i].title);
+				activities[i].updatedAt = moment(activities[i].updatedAt).format('DD/MM/YYYY, HH:mm:ss');
+				new_activities.push(activities[i]);
+			}
+			console.log(activities[2].updatedAt);
+			console.log(new_activities[2].updatedAt);
 		}
-		console.log(activities[2].updatedAt);
-		console.log(new_activities[2].updatedAt);
+		
 		res.json(200,{activities_returned: new_activities});
 	});
 })
