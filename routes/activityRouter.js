@@ -28,8 +28,8 @@ activityRouter.route('/')
 				activities[i].updatedAt = moment(activities[i].updatedAt).format('DD/MM/YYYY, HH:mm:ss');
 				new_activities.push(activities[i]);
 			}
-			console.log(activities[2].updatedAt);
-			console.log(new_activities[2].updatedAt);
+			//console.log(activities[0].updatedAt);
+			//console.log(new_activities[0].updatedAt);
 		}
 		
 		res.json(200,{activities_returned: new_activities});
