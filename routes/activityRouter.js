@@ -55,9 +55,9 @@ activityRouter.route('/')
 	var activity = {
 		title: req.body.title,
 		category: req.body.category,
-		author: mongoose.Types.ObjectId(req.body.author)
-		date = req.body.date,
-		place = req.body.place
+		author: mongoose.Types.ObjectId(req.body.author),
+		date: req.body.date,
+		place: req.body.place
 	};
 
 	console.log(activity.title);
